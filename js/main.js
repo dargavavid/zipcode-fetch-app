@@ -19,7 +19,36 @@ function getLocationInfo(evt) {
             }
         })
         .then(data => {
-            console.log(data);
+            //Show location info
+            let output = "";
+            data.places.forEach(place => {
+                output += `
+                    <article class="message is-primary">
+                        <div class="message-header">
+                            <p>Location Info</p>
+                            <button class="delete"></button>
+                        </div>
+                        <div class="message-body">
+                            <ul>
+                                <li>
+                                    <strong>City: </strong>${place["place name"]}
+                                </li>
+                                <li>
+                                    <strong>State: </strong>${place["state"]}
+                                </li>
+                                <li>
+                                    <strong>Longitude: </strong>${place["longitude"]}
+                                </li>
+                                <li>
+                                    <strong>Latitude: </strong>${place["latitude"]}
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+                `
+            });
+            //Insert into output div
+            document.querySelector("#output").innerHTML = output;
         })
         .catch(err => console.log(err));
     evt.preventDefault();
