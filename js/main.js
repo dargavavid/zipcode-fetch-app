@@ -23,5 +23,14 @@ function getLocationInfo(evt) {
     evt.preventDefault();
 }
 
+function showIcon(icon) {
+    //Clear icons
+    document.querySelector(".icon-remove").style.display = "none";
+    document.querySelector(".icon-check").style.display = "none";
+    
+    //Show requested icon
+    document.querySelector(`.icon-${icon}`).style.display = "inline-flex";
+}
+
 //Listen for submit
 document.querySelector("#zipForm").addEventListener("submit", getLocationInfo, false);
