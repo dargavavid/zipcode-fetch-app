@@ -63,5 +63,13 @@ function showIcon(icon) {
     document.querySelector(`.icon-${icon}`).style.display = "inline-flex";
 }
 
+function deleteLocation(evt) {
+    if (evt.target.className === "delete") {
+        document.querySelector(".message").remove();
+        document.querySelector(".zip").value = "";
+        document.querySelector(".icon-check").style = "none";
+    }
+}
+
 //Listen for submit
 document.querySelector("#zipForm").addEventListener("submit", getLocationInfo, false);
