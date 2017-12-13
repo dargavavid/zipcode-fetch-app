@@ -22,3 +22,6 @@ function getLocationInfo(evt) {
         .catch(err => console.log(err));
     evt.preventDefault();
 }
+
+//Listen for submit
+document.querySelector("#zipForm").addEventListener("submit", getLocationInfo, false);
